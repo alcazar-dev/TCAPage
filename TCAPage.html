@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCA Hospitality - Business Capability Map</title>
+<style>
+:root {
+  /* TCA Brand Colors */
+  --tca-red: #D34836;
+  --tca-bg-light: #F5F5F5;
+  --tca-dark: #242424;
+  
+  /* Palette Adaptation */
+  --teal-600: var(--tca-red); --teal-50: #fdf5f4;
+  --purple-600: #534AB7; --purple-50: #EEEDFE;
+  --coral-600: #993C1D; --coral-50: #FAECE7;
+  --amber-600: #854F0B; --amber-50: #FAEEDA;
+  --green-600: #3B6D11; --green-50: #EAF3DE;
+  --blue-600: #185FA5; --blue-50: #E6F1FB;
+  --gray-600: #5F5E5A; --gray-50: #F1EFE8;
+  --pink-600: #993556; --pink-50: #FBEAF0;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  background-color: var(--tca-bg-light);
+  color: var(--tca-dark);
+}
+
+/* Header Branding */
+.tca-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  background: white; /* El '#' sobraba aquí */
+  border-bottom: 4px solid var(--tca-red);
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.tca-logo {
+  height: 60px;
+  margin-right: 20px;
+}
+
+.tca-title-group h1 {
+  font-size: 22px;
+  color: var(--tca-dark);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.tca-title-group p {
+  font-size: 14px;
+  color: var(--tca-red);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: -2px;
+}
+
+.container { padding: 0 40px 40px; }
+
+.section-intro {
+  margin-bottom: 20px;
+  padding-left: 5px;
+}
+
+.section-intro h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--tca-dark);
+}
+
+/* Capability Grid Styles */
+.section{margin-bottom:12px; border-radius:8px; border:1px solid #ddd; overflow:hidden; background: white;}
+.section-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;cursor:pointer;user-select:none;transition:background .15s}
+.section-header:hover{filter:brightness(0.98)}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.section-title{font-size:14px;font-weight:500}
+.chevron{font-size:12px;transition:transform .25s;color:inherit;opacity:.7}
+.chevron.open{transform:rotate(180deg)}
+.section-body{display:none;border-top:1px solid #eee}
+.section-body.open{display:block}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:15px}
+.cap-card{background: #fff; border:1px solid #eee; border-radius:6px; padding:12px}
+.cap-card-title{font-size:13px;font-weight:600;color:var(--tca-dark);margin-bottom:4px}
+.cap-card-sub{font-size:11px;color:#666;margin-bottom:10px; font-style: italic;}
+.cap-card-items{list-style:none}
+.cap-card-items li{font-size:11px;color:#444;padding:4px 0;border-bottom:0.5px solid #f0f0f0;line-height:1.4}
+.cap-card-items li:last-child{border-bottom:none}
+.badge{display:inline-block;font-size:10px;padding:3px 9px;border-radius:4px;font-weight:600;margin-bottom:8px; text-transform: uppercase;}
+.apps-row{display:flex;flex-wrap:wrap;gap:6px;padding:10px 18px 18px}
+.app-pill{font-size:11px;padding:4px 12px;border-radius:4px;border:1px solid;font-weight:500; background: white;}
+.divider{height:1px;background:#eee;margin:0 18px}
+</style>
+</head>
+<body>
+
+<header class="tca-header">
+  <img src="assets/images/TCA.png" alt="TCA Logo" class="tca-logo" width="500">
+  <div class="tca-title-group">
+    <h1>TCA Software Solutions</h1>
+    <p>Hospitality</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="section-intro">
+    <h2>Mapa de Capacidades de Negocio</h2>
+    <p style="font-size: 13px; color: #666;">Explore los módulos y funcionalidades clave de nuestra suite hospitality.</p>
+  </div>
+  <div id="sections"></div>
+</div>
+
+<script>
+const data = [
+  {
+    id:"guest",
+    label:"Experiencia del huésped",
+    color:"teal",
+    cards:[
+      {title:"Reservaciones",sub:"PMS, CRS, motor web",badge:"Innsist PMS / CRS",items:["Gestión de tarifas","Ritmo de reservas","Estadísticas y pronósticos","Agencias de viaje y compañías","Segmentos de mercado","Canales de reserva","Comisiones","Asignaciones"]},
+      {title:"Check-in / Check-out",sub:"Móvil, web, kiosko",badge:"App Móvil Recepción + Reg. Web",items:["Check-in individual y de grupo","Check-out exprés","Lista de espera","Asignación de habitaciones","Facturación y emisión","Pre-registro web","URL personalizada por marca","Kiosko de recepción"]},
+      {title:"Servicios al huésped",sub:"App, TV, conserje",badge:"App Huésped + App TV",items:["Peticiones (minibar, lavandería)","Tienda virtual","Llamadas despertador","Spa y restaurantes","Menú electrónico","Notificaciones push","Servicio de habitaciones","Agenda de actividades"]},
+      {title:"Perfil e historial",sub:"Historial, preferencias, CRM",badge:"Historial del Huésped",items:["Crear/editar perfiles","Historial centralizado","Preferencias personalizadas","Asignación de ID de perfil","Búsqueda en reservas","Integración CRM","Acompañantes","Promociones específicas"]}
+    ],
+    apps:["Innsist PMS","App Móvil Recepción","Registro Web","App Móvil Huésped","App TV Habitación","Historial del Huésped","App Reservaciones","Servicios Web Hotel"]
+  },
+  {
+    id:"ops",
+    label:"Operaciones hoteleras",
+    color:"purple",
+    cards:[
+      {title:"Habitaciones",sub:"PMS, ama de llaves",badge:"Innsist PMS",items:["Estado de habitaciones","Gestión de limpieza","Supervisión de habitaciones","Seguimiento de tareas","Solicitudes ama de llaves","Cargos de lavandería","Auditoría automática","No-shows / Day pass"]},
+      {title:"Tarifas y distribución",sub:"GDS, OTA, CRS",badge:"CRS + Interfaz GDS/OTA",items:["Gestión de tarifas","Canal de distribución","Motor de reservas","Interfaz GDS/OTA/CRS","Administración de tarifas","RevPAR / ADR","Canales propios vs OTA","% Cancelaciones"]},
+      {title:"Grupos y eventos",sub:"Salones, banquetes",badge:"Sistema Eventos y Grupos",items:["Gestión de servicios de sesión","Agenda de actividades","Pedidos A&B y banquetes","Espacios multifuncionales","Automatización de ventas","Cierre de cuentas maestras","Estadísticas de grupo","Integración con PMS"]},
+      {title:"Tiempo compartido",sub:"Club vacacional, fidelización",badge:"Sistema Tiempo Compartido",items:["Gestión de campañas","Prospectos y aprobaciones","Gestión de propiedades","Programas de fidelización","Rotación automatizada","Facturación recurrente","Administración financiera","Seguimiento de auditoría"]}
+    ],
+    apps:["Innsist PMS","Sistema Eventos y Grupos","Sistema Tiempo Compartido","Interfaz GDS/OTA/CRS","Interfaz Motor Reservas","Interfaz Sistema Llaves","Interfaz Kiosko"]
+  },
+  {
+    id:"revenue",
+    label:"Centros de ingresos",
+    color:"coral",
+    cards:[
+      {title:"Alimentos y bebidas",sub:"POS, mesero, cocina",badge:"Innsist POS Restaurantes",items:["Estación de camareros","Descuentos y promociones","Pago de cheques","Pedidos conversacionales","Combo de comidas","Declaración de residuos","Spot Check / Auditoría","Integración con PMS"]},
+      {title:"Spa y wellness",sub:"Reservas, terapeutas",badge:"Sistema Administración Spa",items:["Reserva de servicios","Administración de terapeutas","Venta de servicios y artículos","Historial de clientes","Paquetes y promociones","Firmas electrónicas","Control de zonas húmedas","Comisiones a conserjería"]},
+      {title:"Tiendas del hotel",sub:"POS, inventario",badge:"POS Tiendas",items:["Lectura de códigos de barras","Recepción de mercancías","Control de inventario","Cargos automáticos hab.","Cobro multidivisa","Factura electrónica","Comisiones por vendedor","Traspaso entre hoteles"]},
+      {title:"Facturación electrónica",sub:"Portales, cert. fiscal",badge:"Interfaz Facturación E.",items:["Portal de facturación","Certificación fiscal LATAM","Cumplimiento por país","Facturación a clientes","Facturas de front office","Anticipos y cancelaciones","Emisión desde POS","Integración contable"]}
+    ],
+    apps:["POS Restaurantes","App Mesero","POS Hostess","Menú Electrónico","Sistema Reservación Restaurantes","Mostrador Comandas Cocina","Sistema Spa","App Concierge Spa","POS Tiendas","Portal Facturación"]
+  },
+  {
+    id:"finance",
+    label:"Administración y finanzas",
+    color:"amber",
+    cards:[
+      {title:"Contabilidad",sub:"General, entre empresas",badge:"Innsist Back Office",items:["Plan contable","Política de ingresos","Gestión presupuestaria","Balance y diario contable","Libro mayor","Estados financieros","Contabilidad entre empresas","Cumplimiento fiscal LATAM"]},
+      {title:"CxC y CxP",sub:"Pagos, cobros, antigüedad",badge:"Back Office",items:["Integración facturas FO","Pagos de clientes","Pagos multicliente","Cobro diario de facturas","Antigüedad de cuentas","Pagos a proveedores","Anticipos y pendientes","Gestión tipos de cambio"]},
+      {title:"Tesorería",sub:"Bancos, conciliación",badge:"Back Office",items:["Transacciones bancarias","Importación de cuentas","Conciliación bancaria","Gestión de pagos","Tipos de cambio","Reportes de tesorería"]},
+      {title:"Nómina y RH",sub:"Empleados, costos laborales",badge:"Sistema Nómina",items:["Gestión de empleados","Costos laborales","% Rotación de personal","Empleados por hab. ocupada","Sueldos por ingresos hab.","Integración contable"]}
+    ],
+    apps:["Innsist Back Office","Sistema Nómina","Portal Proveedores"]
+  },
+  {
+    id:"supply",
+    label:"Cadena de abastecimiento",
+    color:"green",
+    cards:[
+      {title:"Compras",sub:"Órdenes, proveedores",badge:"Back Office — Compras",items:["Gestión de solicitudes","Compras por artículo","Compras por proveedor","Gestión de pedidos","Desviaciones de precios"]},
+      {title:"Inventarios",sub:"Almacenes, recepción",badge:"Back Office — Inventarios",items:["Gestión de artículos","Recepción de mercancías","Devolución de mercancías","Inventario físico","Inventario de servicios","Rotación de inventarios"]},
+      {title:"Costos",sub:"Recetas, A&B, eventos",badge:"Back Office — Costos",items:["Medidas del chef","Recetas","Costes de eventos","Costes de A&B","Funcionamiento del economato"]},
+      {title:"Portal de proveedores",sub:"Autogestión, facturas",badge:"Portal Proveedores",items:["Autogestión de proveedor","Envío de facturas","Extractos de cuenta","Compras por proveedor","Integración Back Office"]}
+    ],
+    apps:["Back Office Compras","Back Office Inventarios","Portal de Proveedores"]
+  },
+  {
+    id:"analytics",
+    label:"Analíticos y reportes",
+    color:"blue",
+    cards:[
+      {title:"Analíticos operativos",sub:"ADR, RevPAR, ocupación",badge:"Innsist Analytics",items:["ADR — Precio medio diario","RevPAR","% Ocupación hotel/hab.","% Reservas por internet","% Cancelaciones","Tasa no-show","Habitaciones vendidas","Producción por agencia"]},
+      {title:"Analíticos financieros",sub:"GOP, EBITDA, estados",badge:"Analytics Finanzas",items:["Estados financieros","$ GOP / % GOP","$ EBITDA por hab.","Ingresos netos","Rotación AR","Costos A&B / hab.","Sueldos por ingresos","Comparación de resultados"]},
+      {title:"Analíticos por área",sub:"A&B, Spa, Tienda, Huésped",badge:"Analytics Multiárea",items:["Ingresos F&B / Spa / Tienda","Inventarios por área","Producción del Spa","Comisiones terapeutas","Género / edad huésped","Geolocalización huéspedes","Huéspedes no recurrentes","Reservas por canal"]},
+      {title:"Pronósticos",sub:"ARIMA, Holt-Winters",badge:"Analytics Forecasting",items:["Previsión de demanda","Previsión de ingresos","Previsión de reservas","Previsión de habitaciones","Método ARIMA","Método Holt-Winters"]}
+    ],
+    apps:["Analytics Ventas y Reservaciones","Analytics Contabilidad","Analytics Compras","Analytics A&B","Analytics Spa","Analytics Huéspedes","Analytics Tiendas","Analytics ETL"]
+  },
+  {
+    id:"integrations",
+    label:"Tecnología e Integración",
+    color:"gray",
+    cards:[
+      {title:"Hardware operativo",sub:"Llaves, TV, minibar",badge:"Interfaces Hardware",items:["Interfaz Llaves Habitación","Interfaz TV","Interfaz Minibar","Interfaz Conmutador","Interfaz Internet","Interfaz Lector Documentos","Interfaz Control Habitación","Kiosko de recepción"]},
+      {title:"Pagos y fiscal",sub:"Bancaria, facturación e.",badge:"Interfaces Financieras",items:["Interfaz Bancaria","Facturación electrónica","Portal Facturación E.","Certificación fiscal LATAM","Integraciones de pago","Cobro multidivisa"]}
+    ],
+    apps:["Interfaz GDS/OTA","Motor Reservas","Interfaz Bancaria","Interfaz Facturación E.","Interfaz CRM"]
+  },
+  {
+    id:"services",
+    label:"Servicios y Soporte",
+    color:"pink",
+    cards:[
+      {title:"Soporte 24/7",sub:"Mesa de ayuda multiidioma",badge:"Mesa de Soporte",items:["Servicio ininterrumpido 24/7","Soporte multiidioma","Técnicos especializados","Conocimiento operativo","Tickets y seguimiento","SLA por severidad"]},
+      {title:"Soporte en la nube",sub:"Seguridad, backups",badge:"Cloud Managed Services",items:["Gestión de recursos","Monitorización continua","Seguridad de la información","Copias de seguridad","Gestión de restauración","Infraestructura gestionada"]}
+    ],
+    apps:[]
+  }
+];
+
+const colorMap = {
+  teal:{bg:"var(--teal-50)",border:"var(--tca-red)",label:"var(--tca-red)",badgeBg:"#f8e9e7",badgeText:"var(--tca-red)"},
+  purple:{bg:"var(--purple-50)",border:"var(--purple-600)",label:"var(--purple-800)",badgeBg:"#d8d6f8",badgeText:"var(--purple-800)"},
+  coral:{bg:"var(--coral-50)",border:"var(--coral-600)",label:"var(--coral-800)",badgeBg:"#f5c4b3",badgeText:"var(--coral-800)"},
+  amber:{bg:"var(--amber-50)",border:"var(--amber-600)",label:"var(--amber-800)",badgeBg:"#fad8a5",badgeText:"var(--amber-800)"},
+  green:{bg:"var(--green-50)",border:"var(--green-600)",label:"var(--green-800)",badgeBg:"#c0dd97",badgeText:"var(--green-800)"},
+  blue:{bg:"var(--blue-50)",border:"var(--blue-600)",label:"var(--blue-800)",badgeBg:"#b5d4f4",badgeText:"var(--blue-800)"},
+  gray:{bg:"var(--gray-50)",border:"var(--gray-600)",label:"var(--gray-800)",badgeBg:"#d3d1c7",badgeText:"var(--gray-800)"},
+  pink:{bg:"var(--pink-50)",border:"var(--pink-600)",label:"var(--pink-800)",badgeBg:"#f4c0d1",badgeText:"var(--pink-800)"}
+};
+
+const container = document.getElementById("sections");
+
+data.forEach(section => {
+  const c = colorMap[section.color];
+  const el = document.createElement("div");
+  el.className = "section";
+  el.style.borderColor = c.border;
+
+  const appsHtml = section.apps.length ? `
+    <div class="divider"></div>
+    <div style="padding:10px 18px 4px;font-size:10px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.08em">Módulos Disponibles</div>
+    <div class="apps-row">${section.apps.map(a=>`<span class="app-pill" style="color:${c.label};border-color:${c.border};">${a}</span>`).join("")}</div>
+  ` : "";
+
+  const cardsHtml = section.cards.map(card=>`
+    <div class="cap-card">
+      <span class="badge" style="background:${c.badgeBg};color:${c.badgeText}">${card.badge}</span>
+      <div class="cap-card-title">${card.title}</div>
+      <div class="cap-card-sub">${card.sub}</div>
+      <ul class="cap-card-items">${card.items.map(i=>`<li>${i}</li>`).join("")}</ul>
+    </div>
+  `).join("");
+
+  el.innerHTML = `
+    <div class="section-header" style="background:${c.bg}" onclick="toggle(this)">
+      <div>
+        <div class="section-label" style="color:${c.label}">${section.label}</div>
+        <div class="section-title" style="color:var(--tca-dark)">${section.cards.map(c=>c.title).join(" · ")}</div>
+      </div>
+      <span class="chevron" style="color:${c.label}">▼</span>
+    </div>
+    <div class="section-body">
+      <div class="cards-grid">${cardsHtml}</div>
+      ${appsHtml}
+    </div>
+  `;
+  container.appendChild(el);
+});
+
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector(".chevron");
+  const isOpen = body.classList.contains("open");
+  body.classList.toggle("open", !isOpen);
+  chevron.classList.toggle("open", !isOpen);
+}
+</script>
+
+</body>
+</html>
